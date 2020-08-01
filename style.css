@@ -358,9 +358,9 @@ p {
     background-color: darkred;
     color: red;
     width: 30%;
-    height: 45%;
+    height: 40%;
     text-align: center;
-    top: 20%;
+    top: 15%;
     left: 50%;
     background-image: url("./assets/welldone.gif");
     background-size: cover;
