@@ -358,10 +358,10 @@ p {
     background-color: darkred;
     color: red;
     width: 30%;
-    height: 30%;
+    height: 60%;
     text-align: center;
     top: 30%;
-    left: 50%;
+    left: 40%;
     background-image: url("./assets/welldone.gif");
     background-size: cover;
 }
