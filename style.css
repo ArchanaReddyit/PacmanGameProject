@@ -363,6 +363,7 @@ p {
     top: 50%;
     left: 20%;
     background-image: url("./assets/welldone.gif");
+    background-size: cover;
 }
 
 #playagainbtn {
