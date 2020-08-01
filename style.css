@@ -360,8 +360,8 @@ p {
     width: 30%;
     height: 50%;
     text-align: center;
-    top: 40%;
-    left: 20%;
+    top: 30%;
+    left: 30%;
     background-image: url("./assets/welldone.gif");
     background-size: cover;
 }
