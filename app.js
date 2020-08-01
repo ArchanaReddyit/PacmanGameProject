@@ -45,10 +45,10 @@ const ghostTwo = {
   lastDirection: 0,
   bias: 1,
 };
-// An array of the 4 ghosts
-const ghosts = [ghostOne, ghostTwo]; //, ghostThree, ghostFour
+// An array of the 2 ghosts
+const ghosts = [ghostOne, ghostTwo];
 // creating the grid and allocating each div a class
-// ASSIGN A CLASS A NUMBER. // empty = 0// wall = 1// pacman = 3// ghosts = 4// pill = 5// WARP = 6
+// ASSIGN A CLASS A NUMBER. // empty = 0// wall = 1// 2=food// pacman = 3// ghosts = 4// pill = 5// WARP = 6
 const layout = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1,
   1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1,
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const move = new Audio("./assets/pacman_chomp.wav");
     move.play();
   }
-  //Function that moves packman using the arrow keys
+  //Function that moves pacman using the arrow keys
   function movePacMan(e) {
     gridSquare[pacIndex].classList.remove("pacmanUp");
     gridSquare[pacIndex].classList.remove("pacmanRight");
@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
       chooseAndMove(ghostTwo);
     }, ghostTimePerMove);
   }
-  // this functions moves the ghosts by removing the class chaning the ghost
+  // this functions moves the ghosts by removing the class changing the ghost
   // position index and the re adding the class to the new index it is used to store all the previous moves of the ghosts
   function makeTheMove(ghost) {
     //this find the change of index so that it is not repeated
@@ -332,23 +332,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ghost.directionStore.push(ghost.directionMove);
     //last direction is stored so that it doesn't go back on itself
     ghost.lastDirection = ghost.directionStore[ghost.directionStore.length - 1];
-    // the class changes depending on if the ghosts is fleeing chasing or dead
-    if (ghost.bias === 2) {
-      gridSquare[ghost.ghostIndex].classList.remove("ghostFlee");
-      ghost.ghostIndex = ghost.ghostIndex + ghost.directionMove;
-      gridSquare[ghost.ghostIndex].classList.add("ghostFlee");
-    } else if (ghost.bias === 3) {
-      gridSquare[ghost.ghostIndex].classList.remove("ghostDead");
-      ghost.ghostIndex = ghost.ghostIndex + ghost.directionMove;
-      gridSquare[ghost.ghostIndex].classList.add("ghostDead");
-    } else {
-      gridSquare[ghost.ghostIndex].classList.remove(ghost.ghostClass);
-      ghost.ghostIndex = ghost.ghostIndex + ghost.directionMove;
-      gridSquare[ghost.ghostIndex].classList.add(ghost.ghostClass);
-    }
+
+    gridSquare[ghost.ghostIndex].classList.remove(ghost.ghostClass);
+    ghost.ghostIndex = ghost.ghostIndex + ghost.directionMove;
+    gridSquare[ghost.ghostIndex].classList.add(ghost.ghostClass);
+
   }
   // ------------------- pac move direction BIAS ----------------
-  // fucntion used by the ghists to find an appropiate route to chase pacman
+  // function used by the ghosts to find an appropiate route to chase pacman
   function towardsPacMan(ghost) {
     // return all the possible new position indexs the ghost can move.
     ghost.goodPositions = ghost.goodDirections.map((x) => x + ghost.ghostIndex);
