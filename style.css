@@ -361,7 +361,7 @@ p {
     height: 60%;
     text-align: center;
     top: 5%;
-    left: 5%;
+    left: 25%;
     background-image: url("./assets/welldone.gif");
     background-size: cover;
 }
