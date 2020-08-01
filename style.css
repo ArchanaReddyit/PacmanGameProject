@@ -367,7 +367,7 @@ p {
 }
 
 #playagainbtn {
-    background-color: orangered;
-
+    background-color: limegreen;
+    width: 30%;
     height: 15%;
 }
